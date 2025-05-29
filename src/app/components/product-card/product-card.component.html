@@ -1,0 +1,8 @@
+<div class="product-card">
+    <h4>{{ product.Name }}</h4>
+    <p>PID: {{product.PID}}</p>
+    <p>Price: {{ product.Price}}</p>
+    <img [src]="product.Image" alt="{{ product.Name }}" />
+    <p>{{ product.Description }}</p>
+    <button (click)="onAddToCart()">Add to Cart</button>
+</div>
