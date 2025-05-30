@@ -1,27 +1,75 @@
-# ProductApp
+# Product App Angular Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+This is a project that demonstrates that basic usage of Angular's functionality to create a product catalog. It explores various Angular features such as components, services, routing, RxJS and more.
 
-## Development server
+## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To perform the initial setup of the project, follow these steps:
 
-## Code scaffolding
+1. Clone the repository
+2. Navigate to the project directory
+3. Run `npm install` to install dependencies
+4. Run `ng serve` to start the development server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Structure
 
-## Build
+```plaintext
+src/
+├── app/
+│   ├── components/
+│   │   ├── product-card/
+│   │   │   ├── product-card.component.ts
+│   │   │   ├── product-card.component.html
+│   │   │   ├── product-card.component.css
+│   │   ├── product-list/
+│   │   │   ├── product-list.component.ts
+│   │   │   ├── product-list.component.html
+│   │   │   ├── product-list.component.css
+│   │   ├── product-detail/
+│   │   │   ├── product-detail.component.ts
+│   │   │   ├── product-detail.component.html
+│   │   │   ├── product-detail.component.css
+│   ├── models/
+│   │   └── product.ts
+│   ├── services/
+│   │   └── product.service.ts
+│   ├── app.component.ts
+│   ├── app.component.html
+│   ├── app.component.css
+│   ├── app.routes.ts
+├── assets/
+│   └── [product images...]
+├── styles.css
+├── index.html
+├── main.ts
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Functionality Test
 
-## Running unit tests
+Follow these steps to verify the main features of the application through the browser:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Start the App**
 
-## Running end-to-end tests
+   - Run `ng serve` and open [http://localhost:4200](http://localhost:4200) in browser.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. **View Product List**
 
-## Further help
+   - It redirects to `/products` and shows a list of product cards, each showing name, price, and image.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. **Test ProductCardComponent**
+
+   - Each product card displays the product's name, price, and description.
+   - Click the **"Add to Cart"** button on any product card.
+   - Check the browser console for a message confirming the product was added (verifies `@Output()` event).
+
+4. **Test Routing & Navigation**
+
+   - Click the **"View Details"** button on any product card.
+   - You should be navigated to `/products/:id` (like `/products/1`).
+   - The product detail page displays all details for the selected product.
+   - If you manually enter an invalid product ID in the URL (e.g., `/products/50`), an error "Product not found" message is displayed.
+
+5. **Test Data Handling**
+
+   - The product list and detail pages should load data instantly (from the hardcoded service).
+   - Refresh the page on any route to ensure data still loads (verifies use of RxJS Observable).
