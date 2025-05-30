@@ -1,0 +1,94 @@
+import { Injectable } from '@angular/core';
+import { Product } from '../models/product';
+import { Observable, of } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ProductService {
+  private products: Product[] = [
+    {
+      PID: 1,
+      Name: 'Smart Vacuum Cleaner',
+      Price: 299.99,
+      Image: 'assets/smart_vacuum.png',
+      Description:
+        'A robotic vacuum cleaner with smart navigation and app control.',
+    },
+    {
+      PID: 2,
+      Name: 'Air Fryer',
+      Price: 89.99,
+      Image: 'assets/air_fryer.png',
+      Description: 'A compact air fryer for healthy cooking with less oil.',
+    },
+    {
+      PID: 3,
+      Name: 'Electric Kettle',
+      Price: 39.99,
+      Image: 'assets/electric_kettle.png',
+      Description: 'A fast-boiling electric kettle with temperature control.',
+    },
+    {
+      PID: 4,
+      Name: 'Smart Coffee Maker',
+      Price: 149.99,
+      Image: 'assets/smart_coffee_maker.png',
+      Description: 'A coffee maker that can be controlled via smartphone app.',
+    },
+    {
+      PID: 5,
+      Name: 'Cordless Handheld Vacuum',
+      Price: 59.99,
+      Image: 'assets/cordless_vacuum.png',
+      Description: 'A lightweight cordless vacuum for quick clean-ups.',
+    },
+    {
+      PID: 6,
+      Name: 'Induction Cooktop',
+      Price: 129.99,
+      Image: 'assets/induction_cooktop.png',
+      Description:
+        'A portable induction cooktop for fast and efficient cooking.',
+    },
+    {
+      PID: 7,
+      Name: 'Smart Air Purifier',
+      Price: 199.99,
+      Image: 'assets/smart_air_purifier.png',
+      Description: 'An air purifier with smart sensors and app connectivity.',
+    },
+    {
+      PID: 8,
+      Name: 'Electric Pressure Cooker',
+      Price: 89.99,
+      Image: 'assets/electric_pressure_cooker.png',
+      Description: 'A versatile electric pressure cooker for quick meals.',
+    },
+    {
+      PID: 9,
+      Name: 'Robot Lawn Mower',
+      Price: 599.99,
+      Image: 'assets/robot_lawn_mower.png',
+      Description: 'A robotic lawn mower that mows your lawn automatically.',
+    },
+    {
+      PID: 10,
+      Name: 'Smart Thermostat',
+      Price: 129.99,
+      Image: 'assets/smart_thermostat.png',
+      Description:
+        'A smart thermostat that learns your schedule and optimizes energy usage.',
+    },
+  ];
+  constructor() {}
+
+  getAllProducts(): Observable<Product[]> {
+    return of(this.products);
+  }
+
+  getProductById(pid: number): Observable<Product | undefined> {
+    const product = this.products.find((product) => product.PID === pid);
+    return of(product);
+  }
+}

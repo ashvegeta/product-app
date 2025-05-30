@@ -1,8 +1,7 @@
 <div class="product-card">
-    <h4>{{ product.Name }}</h4>
-    <p>PID: {{product.PID}}</p>
+    <h3>{{ product.Name }}</h3>
     <p>Price: {{ product.Price}}</p>
-    <img [src]="product.Image" alt="{{ product.Name }}" />
-    <p>{{ product.Description }}</p>
+    <img [src]="product.Image" alt="{{ product.Name }}" /><br>
     <button (click)="onAddToCart()">Add to Cart</button>
+    <button (click)="navigateToDetail()">View Details</button>
 </div>
